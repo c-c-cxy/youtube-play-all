@@ -1,5 +1,7 @@
 node_modules
 secret
+dist
+build
 
 *.zip
 *.code-workspace

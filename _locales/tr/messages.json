@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Schaltfläche „Alle abspielen“ für YouTube",
+    "message": "YouTube için Tümünü Oynat düğmesi",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Alle abspielen",
+    "message": "Tümünü oynat",
     "description": "Label for the injected button."
   }
 }

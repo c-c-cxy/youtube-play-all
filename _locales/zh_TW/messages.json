@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Schaltfläche „Alle abspielen“ für YouTube",
+    "message": "YouTube 的全部播放按鈕",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Alle abspielen",
+    "message": "全部播放",
     "description": "Label for the injected button."
   }
 }

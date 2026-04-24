@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Schaltfläche „Alle abspielen“ für YouTube",
+    "message": "Кнопка «Відтворити все» для YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Alle abspielen",
+    "message": "Відтворити все",
     "description": "Label for the injected button."
   }
 }

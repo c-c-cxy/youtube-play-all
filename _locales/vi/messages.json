@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Schaltfläche „Alle abspielen“ für YouTube",
+    "message": "Nút Phát tất cả cho YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Alle abspielen",
+    "message": "Phát tất cả",
     "description": "Label for the injected button."
   }
 }

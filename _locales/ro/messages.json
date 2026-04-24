@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Schaltfläche „Alle abspielen“ für YouTube",
+    "message": "Butonul Redă-le pe toate pentru YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Alle abspielen",
+    "message": "Redă-le pe toate",
     "description": "Label for the injected button."
   }
 }

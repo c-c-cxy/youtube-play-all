@@ -4,7 +4,7 @@
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir tudo",
+    "message": "Reproducir todo",
     "description": "Label for the injected button."
   }
 }

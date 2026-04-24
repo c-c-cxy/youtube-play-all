@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Spela alla-knappen för YouTube",
+    "message": "Kitufe cha Cheza zote kwa YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Spela upp alla",
+    "message": "Cheza zote",
     "description": "Label for the injected button."
   }
 }

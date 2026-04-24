@@ -3,10 +3,7 @@
   "name": "__MSG_extName__",
   "description": "Brings back the Play All button on YouTube.",
   "default_locale": "en",
-  "version": "0.0.0.5",
-  "action": {
-    "default_icon": "icon.png"
-  },
+  "version": "0.1.1",
   "icons": {
     "16": "icon.png",
     "32": "icon.png",
@@ -16,8 +13,8 @@
   "content_scripts": [
     {
       "js": ["dist/content.js"],
-      "matches": ["<all_urls>"],
-      "run_at": "document_end"
+      "matches": ["*://*.youtube.com/*"],
+      "run_at": "document_idle"
     }
   ]
 }
