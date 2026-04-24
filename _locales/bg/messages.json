@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Botão Reproduzir todos para o YouTube",
+    "message": "Бутон „Пускане на всички“ за YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir todos",
+    "message": "Пускане на всички",
     "description": "Label for the injected button."
   }
 }

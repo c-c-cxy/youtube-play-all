@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Botão Reproduzir todos para o YouTube",
+    "message": "YouTube üçün “Hamısını oxudun” düyməsi",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir todos",
+    "message": "Hamısını oxudun",
     "description": "Label for the injected button."
   }
 }

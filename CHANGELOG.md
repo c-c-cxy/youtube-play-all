@@ -3,6 +3,17 @@
 All notable changes to this extension are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.2] - 2026-04-24
+
+### Added
+- 14 new locales, covering every language with active weekly users that we weren't already shipping: Azerbaijani (`az`), Bulgarian (`bg`), Danish (`da`), Greek (`el`), Finnish (`fi`), Hebrew (`he`), Croatian (`hr`), Hungarian (`hu`), Latvian (`lv`), Norwegian Bokmål (`nb`), Norwegian (`no`), Slovak (`sk`), Slovenian (`sl`), Serbian (`sr`).
+- `add-locale` project skill ([.claude/skills/add-locale/SKILL.md](.claude/skills/add-locale/SKILL.md)) that documents the `curl | grep '"PLAY_ALL"'` workflow for sourcing YouTube's exact button string, so future locale additions stay byte-identical to YouTube's UI.
+
+### Changed
+- Re-verified every existing locale against YouTube's live `"PLAY_ALL"` string and corrected drift:
+  - `pl`: *Odtwórz wszystkie* → **Odtwórz wszystko**
+  - `pt_BR`: *Reproduzir tudo* → **Reproduzir todos** (YouTube now uses the same string for pt-BR and pt-PT)
+
 ## [0.1.1] - 2026-04-23
 
 ### Added

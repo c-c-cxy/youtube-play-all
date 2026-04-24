@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Botão Reproduzir todos para o YouTube",
+    "message": "Gumb »Predvajaj vse« za YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir todos",
+    "message": "Predvajaj vse",
     "description": "Label for the injected button."
   }
 }

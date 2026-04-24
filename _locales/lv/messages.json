@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Botão Reproduzir todos para o YouTube",
+    "message": "Poga “Atskaņot visu” pakalpojumam YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir todos",
+    "message": "Atskaņot visu",
     "description": "Label for the injected button."
   }
 }

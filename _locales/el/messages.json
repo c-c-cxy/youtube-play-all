@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Botão Reproduzir todos para o YouTube",
+    "message": "Κουμπί «Αναπαραγωγή όλων» για το YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Reproduzir todos",
+    "message": "Αναπαραγωγή όλων",
     "description": "Label for the injected button."
   }
 }

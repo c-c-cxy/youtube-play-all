@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Przycisk Odtwórz wszystkie dla YouTube",
+    "message": "Przycisk Odtwórz wszystko dla YouTube",
     "description": "Extension name."
   },
   "playAllButtonLabel": {
-    "message": "Odtwórz wszystkie",
+    "message": "Odtwórz wszystko",
     "description": "Label for the injected button."
   }
 }

@@ -1,11 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(npm install *)",
-      "Bash(npm run *)",
-      "Bash(curl -sS -L -A \"Mozilla/5.0\" -H \"Accept-Language: vi\" \"https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf\")",
-      "Bash(node -e 'console.log\\(require\\('\\\\''./_locales/__TRACKED_VAR__/messages.json'\\\\''\\).playAllButtonLabel.message\\)')",
-      "Bash(curl -sS -L -A Mozilla/5.0 -H 'Accept-Language: __TRACKED_VAR__' 'https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf' -o build/i18n-test/__TRACKED_VAR__.html)"
-    ]
+    "allow": ["Bash(npm install *)", "Bash(npm run *)"]
   }
 }
