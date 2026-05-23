@@ -2,6 +2,6 @@
 
 [Chrome web store link](https://chromewebstore.google.com/detail/Play%20All%20button%20for%20YouTube/lnngonmdpkejhjpobbbonechojbncoll)
 
-I usually find myself in need of this feature however YouTube removed it a while back. There were a few hacks such as a bookmarklets but they either require some manual editing or stopped working. So I finally decided to make this extension.
+I usually find myself in need of this feature however YouTube removed it after launching shorts. There were a few hacks such as a bookmarklet but either they require some manual editing or they stopped working. So I finally decided to make this extension.
 
-Let me know if you want localization for a specific language or raise a pull request of your own.
+If you want localization for a specific language, raise an issue or a pull request of your own.
