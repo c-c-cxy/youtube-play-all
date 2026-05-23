@@ -1,7 +1,10 @@
 const path = require("path");
 
 module.exports = (_env, argv) => ({
-  entry: "./src/main.ts",
+  entry: {
+    content: "./src/main.ts",
+    bridge: "./src/bridge.ts",
+  },
   devtool: argv.mode === "production" ? false : "inline-source-map",
   module: {
     rules: [
@@ -16,7 +19,7 @@ module.exports = (_env, argv) => ({
     extensions: [".ts", ".js"],
   },
   output: {
-    filename: "content.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },

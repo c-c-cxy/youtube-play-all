@@ -3,6 +3,19 @@
 All notable changes to this extension are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.3] - 2026-05-23
+
+### Fixed
+- Button now appears after in-page SPA navigation from a video to a channel page. Previously every channel-id source was stale in this case: `<head>` meta tags (`og:url`, `<link rel="canonical">`, RSS link) never updated after the initial page load, and `window.ytInitialData` is in the page's world (invisible from a content script's isolated world). The button would only appear if the channel page was opened in a fresh tab.
+
+### Changed
+- New MAIN-world bridge script (`dist/bridge.js`, `world: "MAIN"` in `manifest.json`) reads `document.querySelector("ytd-browse").data` — the only source that updates during SPA navigation — and writes the channel id to `<html data-ytpa-channel-id="UC…">`, which the content script reads via `document.documentElement.dataset.ytpaChannelId`.
+- Injection trigger simplified to a single `yt-navigate-finish` listener (YouTube fires it on both fresh loads and SPA navigations).
+
+### Removed
+- `MutationObserver` on `document.body` and the 100 ms debounce — single-event trigger has no bursts to coalesce.
+- `getChannelId.ts` and its `<head>` meta-tag scraping; the dead `window.ytInitialData` fallback never worked from the content script.
+
 ## [0.1.2] - 2026-04-24
 
 ### Added
