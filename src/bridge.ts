@@ -11,7 +11,11 @@
 const CHANNEL_ID_RE = /^UC[0-9A-Za-z_-]{22}$/;
 
 const sync = (): void => {
-  const browse = document.querySelector("ytd-browse") as any;
+  // YouTube keeps the previous page's <ytd-browse> in the DOM and marks
+  // it `hidden` while a new one renders alongside it, so the unqualified
+  // selector returns the stale element. :not([hidden]) picks the active
+  // page.
+  const browse = document.querySelector("ytd-browse:not([hidden])") as any;
   const data = browse?.data;
 
   const id: unknown =

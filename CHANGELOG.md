@@ -3,6 +3,11 @@
 All notable changes to this extension are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.4] - 2026-05-27
+
+### Fixed
+- Bridge was reading the wrong `<ytd-browse>` element. YouTube keeps the previous page's element in the DOM marked `hidden` while the new one renders alongside, so the unqualified `document.querySelector("ytd-browse")` returned the stale page's data — `metadata.channelMetadataRenderer` was missing and the bridge silently skipped writing the channel id. Switched to `ytd-browse:not([hidden])` to pick the active page.
+
 ## [0.1.3] - 2026-05-23
 
 ### Fixed
