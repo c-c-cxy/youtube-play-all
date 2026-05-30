@@ -22,11 +22,19 @@ const sync = (): void => {
     data?.metadata?.channelMetadataRenderer?.externalId ??
     data?.header?.c4TabbedHeaderRenderer?.channelId;
 
-  if (typeof id === "string" && CHANNEL_ID_RE.test(id)) {
-    document.documentElement.dataset.ytpaChannelId = id;
+  const wrote = typeof id === "string" && CHANNEL_ID_RE.test(id);
+  if (wrote) {
+    document.documentElement.dataset.ytpaChannelId = id as string;
   } else {
     delete document.documentElement.dataset.ytpaChannelId;
   }
+
+  console.log("[ytpa] bridge sync", {
+    t: performance.now().toFixed(0),
+    path: window.location.pathname,
+    foundBrowse: !!browse,
+    wrote: wrote ? id : null,
+  });
 };
 
 document.addEventListener("yt-navigate-finish", sync);

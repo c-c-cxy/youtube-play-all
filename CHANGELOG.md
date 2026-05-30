@@ -3,6 +3,14 @@
 All notable changes to this extension are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.5] - 2026-05-30
+
+### Fixed
+- Button now appears on background-tab opens (middle-click "Open in new tab" on a channel link from a video page). YouTube never fires `yt-navigate-finish` on background-loaded tabs, so the single-listener strategy from 0.1.3 never injected; restored an initial `tryInject()` pass at script load, which runs once `document_idle` fires with the action row and bridge data attribute already in place.
+
+### Added
+- `[ytpa]`-prefixed console logging across the bridge and content script, plus a README "Debugging" section with a 5-step pipeline check (path → bridge attribute → `ytd-browse` data → action row → injected marker) for diagnosing missing-button reports.
+
 ## [0.1.4] - 2026-05-27
 
 ### Fixed
