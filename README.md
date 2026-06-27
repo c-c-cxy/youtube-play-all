@@ -23,8 +23,11 @@ document.documentElement.dataset.ytpaChannelId; // expect "UC…"
 document.querySelector("ytd-browse:not([hidden])")?.data?.metadata
   ?.channelMetadataRenderer?.externalId;
 
-// 4. Is YouTube's action row in the DOM yet?
-document.querySelector("yt-flexible-actions-view-model");
+// 4. Is the *active* page's action row in the DOM yet? The :not([hidden])
+//    scope matters — a stale hidden <ytd-browse> from a previous page can
+//    hold its own action row first in document order, and injecting there
+//    puts the button in a hidden view.
+document.querySelector("ytd-browse:not([hidden]) yt-flexible-actions-view-model");
 
 // 5. Did we already inject the button?
 document.querySelector(".play-all-injected-pabfyt");

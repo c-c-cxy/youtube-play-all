@@ -35,12 +35,16 @@ Three sources we explored are NOT viable — don't reintroduce them:
 
 ### Injection triggers (`src/main.ts`)
 
-Two triggers — both load-bearing:
+A single debounced `MutationObserver` on `document.body` (`childList` + `subtree`), plus one initial `tryInject()` call. The observer subsumes every trigger we'd otherwise wire up separately — SPA navigation, initial hydration, and the action-row re-render on window resize all surface as DOM mutations, and each fires a (debounced) re-check. `tryInject()` is cheap and idempotent (marker-class guard), so re-running it on every mutation burst is safe.
 
-1. **Initial `tryInject()` at script load** — critical for **background-tab opens** (middle-click "Open in new tab"). `yt-navigate-finish` does NOT fire at all on background-loaded tabs (verified empirically). By the time `document_idle` runs, the action row and the bridge's data attribute are already in place, so the initial pass is the only thing that injects.
-2. **`yt-navigate-finish` listener** — handles SPA navigations on active tabs. Deferred with `setTimeout(…, 0)` so the bridge's synchronous handler writes the data attribute before the content script reads it.
+Why an observer rather than a `yt-navigate-finish` listener (an earlier revision, `4fef00a`, tried that):
 
-Earlier revisions tried to "simplify" by collapsing to just one trigger; both attempts regressed. Don't remove either without verifying all three repros: (a) fresh load of a channel page, (b) same-tab SPA navigation from a video page to its channel page (covered by the `yt-navigate-finish` listener — the bridge architecture was built for this case), (c) middle-click "Open in new tab" on a channel link from a video page (covered by the initial `tryInject()`).
+- `yt-navigate-finish` does NOT fire on **background-tab opens** (middle-click "Open in new tab") — verified empirically. MutationObservers fire regardless of tab focus, so the observer covers this case; the initial `tryInject()` is a backstop for when the row is already present before the first callback.
+- `yt-navigate-finish` fires **once per navigation**, so it can't re-inject when YouTube **rebuilds the flexible action row on resize** and discards our button. This regressed when the observer was removed — restoring the observer is the fix.
+
+`tryInject()` queries the action row through `ytd-browse:not([hidden]) yt-flexible-actions-view-model`, not the bare element selector. The `:not([hidden])` scope is load-bearing for the same reason it is in the bridge: a stale hidden `ytd-browse` (most often a previously-visited channel, lingering after a video → channel navigation) keeps its own `yt-flexible-actions-view-model` first in document order, and an unqualified query injects the button into that hidden view.
+
+Don't replace the observer with narrower event triggers without verifying all four repros: (a) fresh load of a channel page, (b) same-tab SPA navigation from a video page to its channel page, (c) middle-click "Open in new tab" on a channel link from a video page, (d) resizing the window on a channel page — the button must survive (re-appear after) the resize.
 
 ### Action-row injection (`src/utils/createPlayAllButton.ts`)
 

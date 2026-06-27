@@ -1,8 +1,16 @@
 /**
- * Custom element YouTube uses to host channel-header action buttons
- * (Subscribe, Join, …). We inject our button as its last child.
+ * The channel-header action row (`yt-flexible-actions-view-model`, which
+ * hosts Subscribe, Join, …), scoped to the active page. We inject our
+ * button as its last child.
+ *
+ * The `ytd-browse:not([hidden])` scope is load-bearing: YouTube keeps the
+ * previous page's `<ytd-browse>` in the DOM marked `hidden` while the new
+ * one renders, and its stale action row sits first in document order. An
+ * unqualified query would match that hidden row and inject the button
+ * into a view the user can't see — never what we want.
  */
-export const ACTION_ROW_SELECTOR = "yt-flexible-actions-view-model";
+export const ACTION_ROW_SELECTOR =
+  "ytd-browse:not([hidden]) yt-flexible-actions-view-model";
 
 /**
  * Marker class on the injected wrapper. Used as an idempotency guard so

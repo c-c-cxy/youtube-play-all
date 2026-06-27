@@ -3,6 +3,12 @@
 All notable changes to this extension are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.6] - 2026-06-26
+
+### Fixed
+- Button no longer injects into a hidden, off-screen view after navigating from a video to a channel page. YouTube keeps the previous channel's `<ytd-browse>` in the DOM marked `hidden`, and its stale action row sits first in document order; the action-row query is now scoped to `ytd-browse:not([hidden])` so the button lands on the active page.
+- Button now survives a window resize. YouTube rebuilds the action row on resize and discards the injected button, and the single `yt-navigate-finish` listener never re-ran; restored the debounced `document.body` `MutationObserver` (removed in 0.1.3) so the button re-injects whenever the row is rebuilt.
+
 ## [0.1.5] - 2026-05-30
 
 ### Fixed
